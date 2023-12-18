@@ -31,7 +31,15 @@ class ViewControllerFirst: UIViewController {
     @objc
     private func presentController()
     {
+        print("present second view controller")
         let viewControllerToPresent = ViewControllerSecond()
+      
+        viewControllerToPresent.modalPresentationStyle = .custom
+      //  let interactiveTransition = InteractiveTransition(viewController: self)
+        let transitionDelegate = SlideInTransitionDelegate()  // Retain the delegate as a property
+       // transitionDelegate.interactionController = interactiveTransition
+        viewControllerToPresent.transitioningDelegate = transitionDelegate
+  
         present(viewControllerToPresent, animated: true, completion: nil)
     }
 }

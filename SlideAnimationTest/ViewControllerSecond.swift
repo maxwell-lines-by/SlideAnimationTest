@@ -2,16 +2,11 @@ import UIKit
 
 //second vc, that is being presented
 class ViewControllerSecond: UIViewController {
-    var interactiveTransition: InteractiveTransition?
-    let transitionDelegate = SlideInTransitionDelegate()  // Retain the delegate as a property
 
     init()
     {
         super.init(nibName: nil, bundle: nil)
-        modalPresentationStyle = .custom
-        interactiveTransition = InteractiveTransition(viewController: self)
-        transitionDelegate.interactionController = interactiveTransition
-        self.transitioningDelegate = transitionDelegate
+       
     }
     
     required init?(coder: NSCoder) {
@@ -20,18 +15,27 @@ class ViewControllerSecond: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .blue
-        view.addSubview(button)
+        view.addSubview(backButton)
         NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            button.widthAnchor.constraint(equalToConstant: 150)
+            backButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            backButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            backButton.widthAnchor.constraint(equalToConstant: 150)
+        ])
+        
+        view.addSubview(forwardButton)
+        NSLayoutConstraint.activate([
+            forwardButton.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 100),
+            forwardButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            forwardButton.widthAnchor.constraint(equalToConstant: 150)
         ])
         
         //can trigger dismiss with a button press
-        button.addTarget(self, action: #selector(dismissself), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(dismissSelf), for: .touchUpInside)
+        forwardButton.addTarget(self, action: #selector(goForward), for: .touchUpInside)
+
     }
 
-    let button :  UIButton = {
+    let backButton :  UIButton = {
         let button = UIButton()
         button.setTitle("dismiss", for: .normal)
         button.backgroundColor = .green
@@ -40,9 +44,38 @@ class ViewControllerSecond: UIViewController {
         return button
     }()
     
+    let forwardButton :  UIButton = {
+        let button = UIButton()
+        button.setTitle("go to red", for: .normal)
+        button.backgroundColor = .red
+        button.setTitleColor(.black, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     @objc
-    private func dismissself()
+    private func dismissSelf()
     {
+        print("dismiss second view controller")
+    
+        let interactiveTransition = InteractiveTransition(viewController: self)
+        let transitionDelegate = SlideInTransitionDelegate()  // Retain the delegate as a property
+        self.transitioningDelegate = transitionDelegate
+
         dismiss(animated: true, completion: {})
+    
+    }
+    
+    @objc
+    private func goForward()
+    {
+        print("present third view controller")
+        let viewControllerToPresent = ViewControllerThird()
+        viewControllerToPresent.modalPresentationStyle = .custom
+        let interactiveTransition = InteractiveTransition(viewController: self)
+        let transitionDelegate = SlideInTransitionDelegate()  // Retain the delegate as a property
+        transitionDelegate.interactionController = interactiveTransition
+        viewControllerToPresent.transitioningDelegate = transitionDelegate
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
 }

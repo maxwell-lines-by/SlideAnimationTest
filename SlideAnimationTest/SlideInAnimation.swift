@@ -25,6 +25,7 @@ class SlideInTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
     
     private func presentAnimation(fromVC: UIViewController, toVC: UIViewController, withContext transitionContext: UIViewControllerContextTransitioning)
     {
+        print("present animation")
         let containerView = transitionContext.containerView
         let finalFrame = transitionContext.finalFrame(for: toVC)
         
@@ -40,8 +41,8 @@ class SlideInTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
             toVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
             fromVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
         }, completion: { finished in
+            print("present completed")
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-            
             fromVC.view.transform = .identity // Reset the view's transform
         })
         
@@ -71,7 +72,9 @@ class SlideInTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
                       // Remove the fromVC's view from the container view if the transition completed
                       fromVC.view.removeFromSuperview()
                   }
-                  transitionContext.completeTransition(!wasCancelled)
+            print("dismiss completed")
+
+                transitionContext.completeTransition(!wasCancelled)
         })
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		464288072B30EE670091D351 /* ViewControllerThird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464288062B30EE670091D351 /* ViewControllerThird.swift */; };
 		4692B73A2AC48BB700A7FB8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4692B7392AC48BB700A7FB8F /* AppDelegate.swift */; };
 		4692B73C2AC48BB700A7FB8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4692B73B2AC48BB700A7FB8F /* SceneDelegate.swift */; };
 		4692B73E2AC48BB700A7FB8F /* ViewControllerFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4692B73D2AC48BB700A7FB8F /* ViewControllerFirst.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		464288062B30EE670091D351 /* ViewControllerThird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerThird.swift; sourceTree = "<group>"; };
 		4692B7362AC48BB700A7FB8F /* SlideAnimationTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideAnimationTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4692B7392AC48BB700A7FB8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4692B73B2AC48BB700A7FB8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				4692B73B2AC48BB700A7FB8F /* SceneDelegate.swift */,
 				4692B73D2AC48BB700A7FB8F /* ViewControllerFirst.swift */,
 				46ECA5822B2BB95900BEB124 /* ViewControllerSecond.swift */,
+				464288062B30EE670091D351 /* ViewControllerThird.swift */,
 				46ECA5842B2BC2E000BEB124 /* SlideInAnimation.swift */,
 				4692B7422AC48BB800A7FB8F /* Assets.xcassets */,
 				4692B7442AC48BB800A7FB8F /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			files = (
 				46ECA5852B2BC2E000BEB124 /* SlideInAnimation.swift in Sources */,
 				46ECA5832B2BB95900BEB124 /* ViewControllerSecond.swift in Sources */,
+				464288072B30EE670091D351 /* ViewControllerThird.swift in Sources */,
 				4692B73E2AC48BB700A7FB8F /* ViewControllerFirst.swift in Sources */,
 				4692B73A2AC48BB700A7FB8F /* AppDelegate.swift in Sources */,
 				4692B73C2AC48BB700A7FB8F /* SceneDelegate.swift in Sources */,

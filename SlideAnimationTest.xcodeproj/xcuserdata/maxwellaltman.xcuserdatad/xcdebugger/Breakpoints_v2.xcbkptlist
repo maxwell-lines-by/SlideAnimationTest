@@ -7,118 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "08A4A7E1-D688-4962-AD9E-8C8556071B1A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlideAnimationTest/SlideInAnimation.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "animationController(forDismissed:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "08A4A7E1-D688-4962-AD9E-8C8556071B1A - b47086e13ef4dcf9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SlideAnimationTest.SlideInTransitionDelegate.animationController(forDismissed: __C.UIViewController) -&gt; Swift.Optional&lt;__C.UIViewControllerAnimatedTransitioning&gt;"
-                  moduleName = "SlideAnimationTest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maxwellaltman/Documents/SwiftPlayground/SlideAnimationTest/SlideAnimationTest/SlideInAnimation.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "120">
-               </Location>
-               <Location
-                  uuid = "08A4A7E1-D688-4962-AD9E-8C8556071B1A - b47086e13ef4dcf9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SlideAnimationTest.SlideInTransitionDelegate.animationController(forDismissed: __C.UIViewController) -&gt; Swift.Optional&lt;__C.UIViewControllerAnimatedTransitioning&gt;"
-                  moduleName = "SlideAnimationTest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maxwellaltman/Documents/SwiftPlayground/SlideAnimationTest/SlideAnimationTest/SlideInAnimation.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "169DAB41-3613-4EB1-A75D-3BA20277EC28"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlideAnimationTest/SlideInAnimation.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "animationController(forPresented:presenting:source:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "169DAB41-3613-4EB1-A75D-3BA20277EC28 - 12062acf06c4510f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SlideAnimationTest.SlideInTransitionDelegate.animationController(forPresented: __C.UIViewController, presenting: __C.UIViewController, source: __C.UIViewController) -&gt; Swift.Optional&lt;__C.UIViewControllerAnimatedTransitioning&gt;"
-                  moduleName = "SlideAnimationTest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maxwellaltman/Documents/SwiftPlayground/SlideAnimationTest/SlideAnimationTest/SlideInAnimation.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "136">
-               </Location>
-               <Location
-                  uuid = "169DAB41-3613-4EB1-A75D-3BA20277EC28 - 12062acf06c4510f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SlideAnimationTest.SlideInTransitionDelegate.animationController(forPresented: __C.UIViewController, presenting: __C.UIViewController, source: __C.UIViewController) -&gt; Swift.Optional&lt;__C.UIViewControllerAnimatedTransitioning&gt;"
-                  moduleName = "SlideAnimationTest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maxwellaltman/Documents/SwiftPlayground/SlideAnimationTest/SlideAnimationTest/SlideInAnimation.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "ADE5D9FC-68A6-4473-9377-28E7B7CD0F9D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlideAnimationTest/SlideInAnimation.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "interactionControllerForDismissal(using:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "A771E351-4CDF-489F-A1F1-6000B6699639"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -126,42 +14,58 @@
             filePath = "SlideAnimationTest/SlideInAnimation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "dismissAnimation(fromVC:toVC:withContext:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A771E351-4CDF-489F-A1F1-6000B6699639 - 2206b3455404412e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Bool) -&gt; () in SlideAnimationTest.SlideInTransitionAnimator.dismissAnimation(fromVC: __C.UIViewController, toVC: __C.UIViewController, withContext: __C.UIViewControllerContextTransitioning) -&gt; ()"
-                  moduleName = "SlideAnimationTest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maxwellaltman/Documents/SwiftPlayground/SlideAnimationTest/SlideAnimationTest/SlideInAnimation.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "512">
-               </Location>
-               <Location
-                  uuid = "A771E351-4CDF-489F-A1F1-6000B6699639 - 2206b3455404412e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Bool) -&gt; () in SlideAnimationTest.SlideInTransitionAnimator.dismissAnimation(fromVC: __C.UIViewController, toVC: __C.UIViewController, withContext: __C.UIViewControllerContextTransitioning) -&gt; ()"
-                  moduleName = "SlideAnimationTest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maxwellaltman/Documents/SwiftPlayground/SlideAnimationTest/SlideAnimationTest/SlideInAnimation.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "404">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F8F4765A-34E0-4EAC-BC2A-7D074B211BE4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SlideAnimationTest/SlideInAnimation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "dismissAnimation(fromVC:toVC:withContext:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2989BDE3-3EA9-491E-A31C-3FAA3F93B24F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SlideAnimationTest/SlideInAnimation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "dismissAnimation(fromVC:toVC:withContext:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DB7BD6D3-2953-4FA7-BFC8-45AB2F827276"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SlideAnimationTest/SlideInAnimation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "dismissAnimation(fromVC:toVC:withContext:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
