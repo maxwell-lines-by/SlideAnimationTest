@@ -53,10 +53,9 @@ class SlideInTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         let containerView = transitionContext.containerView
         toVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
 
+        
         UIView.animate(withDuration: springAnimationDuration,
                        delay: 0,
-                       usingSpringWithDamping: springAnimationDamping,
-                       initialSpringVelocity: springAnimationInitialVelocity,
                        options: [.allowUserInteraction],
                        animations: {
             toVC.view.transform = .identity
@@ -117,8 +116,10 @@ class InteractiveTransition: UIPercentDrivenInteractiveTransition {
     
     @objc
     func handleGesture(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
-        let translation = gestureRecognizer.translation(in: gestureRecognizer.view?.superview)
-        var progress = translation.x / 400 // Adjust the divisor as needed for sensitivity
+        let position = gestureRecognizer.location(in: gestureRecognizer.view?.superview)
+        var progress = position.x / UIScreen.main.bounds.width
+
+        // Adjust the divisor as needed for sensitivity
         progress = min(max(progress, 0.0), 1.0)
         switch gestureRecognizer.state {
         case .began:

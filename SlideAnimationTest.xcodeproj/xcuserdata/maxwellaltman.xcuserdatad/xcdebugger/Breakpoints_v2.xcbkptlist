@@ -14,8 +14,8 @@
             filePath = "SlideAnimationTest/SlideInAnimation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "animationController(forDismissed:)"
             landmarkType = "7">
             <Locations>
@@ -62,8 +62,8 @@
             filePath = "SlideAnimationTest/SlideInAnimation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "animationController(forPresented:presenting:source:)"
             landmarkType = "7">
             <Locations>
@@ -110,8 +110,8 @@
             filePath = "SlideAnimationTest/SlideInAnimation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "interactionControllerForDismissal(using:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "SlideAnimationTest/SlideInAnimation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "dismissAnimation(fromVC:toVC:withContext:)"
             landmarkType = "7">
             <Locations>
