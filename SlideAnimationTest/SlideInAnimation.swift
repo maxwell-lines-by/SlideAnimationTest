@@ -15,7 +15,7 @@ class SlideInTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         
         if isPresenting
         {
-            presentAnimation(fromVC: fromVC, toVC: toVC, withContext: transitionContext)
+            presentAnimation( toVC: toVC, withContext: transitionContext)
         }
         else
         {
@@ -23,14 +23,16 @@ class SlideInTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         }
     }
     
-    private func presentAnimation(fromVC: UIViewController, toVC: UIViewController, withContext transitionContext: UIViewControllerContextTransitioning)
+    private func presentAnimation(toVC: UIViewController, withContext transitionContext: UIViewControllerContextTransitioning)
     {
         print("present animation")
         let containerView = transitionContext.containerView
         let finalFrame = transitionContext.finalFrame(for: toVC)
+        let toView = transitionContext.view(forKey: .to)!
         
-        containerView.addSubview(toVC.view)
-        toVC.view.frame = finalFrame.offsetBy(dx: containerView.bounds.width, dy: 0)
+        containerView.addSubview(toView)
+        
+        toView.frame = finalFrame.offsetBy(dx: containerView.bounds.width, dy: 0)
         UIView.animate(withDuration: springAnimationDuration,
                        delay: 0,
                        usingSpringWithDamping: springAnimationDamping,
@@ -38,39 +40,39 @@ class SlideInTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
                        options: [.allowUserInteraction],
                        animations: {
             
-            toVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
-            fromVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
+            toView.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
+          //  fromVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
         }, completion: { finished in
             print("present completed")
+       //     fromVC.view.transform = .identity // Reset the view's transform
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-            fromVC.view.transform = .identity // Reset the view's transform
         })
-        
     }
     
     private func dismissAnimation(fromVC: UIViewController, toVC: UIViewController, withContext transitionContext: UIViewControllerContextTransitioning)
     {
         print("dismiss animation")
         let containerView = transitionContext.containerView
-        toVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
+      //  toVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
+        let fromView = transitionContext.view(forKey: .from)!
 
         
         UIView.animate(withDuration: springAnimationDuration,
                        delay: 0,
                        options: [.allowUserInteraction],
                        animations: {
-            toVC.view.transform = .identity
-            fromVC.view.transform = .identity
+           // toVC.view.transform = .identity
+            fromView.transform = .identity
         }, completion: { finished in
             let wasCancelled = transitionContext.transitionWasCancelled
                   if wasCancelled {
                       print("was cancelled")
                       // Reset any changes made during the transition
-                      toVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
-                      toVC.view.transform = .identity
+                    //  toVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
+                     // toVC.view.transform = .identity
                   } else {
                       // Remove the fromVC's view from the container view if the transition completed
-                      fromVC.view.removeFromSuperview()
+                      fromView.removeFromSuperview()
                   }
             print("dismiss completed")
 
