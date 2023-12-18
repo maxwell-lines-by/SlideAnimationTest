@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  ImageSizingAnimation
-//
-//  Created by Maxwell Altman on 9/27/23.
-//
-
 import UIKit
 
 @main
