@@ -2,10 +2,15 @@ import UIKit
 
 //second vc, that is being presented
 class ViewControllerThird: UIViewController {
+    let transitionDelegate = SlideInTransitionDelegate()  // Retain the delegate as a property
 
     init()
     {
         super.init(nibName: nil, bundle: nil)
+        modalPresentationStyle = .custom
+        let interactiveTransition = InteractiveTransition(viewController: self)
+        transitionDelegate.interactionController = interactiveTransition
+        transitioningDelegate = transitionDelegate
     }
     
     required init?(coder: NSCoder) {
@@ -39,6 +44,6 @@ class ViewControllerThird: UIViewController {
     private func dismissself()
     {
         print("dismiss third view controller")
-        AnimationHelper.dismissController(self)
+        dismiss(animated: true)    
     }
 }

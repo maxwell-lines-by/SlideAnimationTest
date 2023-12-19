@@ -33,6 +33,6 @@ class ViewControllerFirst: UIViewController {
     {
         print("present second view controller")
         let viewControllerToPresent = ViewControllerSecond()
-        AnimationHelper.presentController(viewController: viewControllerToPresent, from: self)
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
 }

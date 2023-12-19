@@ -83,7 +83,7 @@ class SlideInTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
 
 class SlideInTransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {
     let animator = SlideInTransitionAnimator()
-    weak var interactionController: InteractiveTransition?
+    var interactionController: InteractiveTransition?
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         animator.isPresenting = true

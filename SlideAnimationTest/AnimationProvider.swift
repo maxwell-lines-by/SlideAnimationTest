@@ -1,12 +1,7 @@
-//
-//  AnimationProvider.swift
-//  SlideAnimationTest
-//
-//  Created by Maxwell Altman on 12/19/23.
-//
-
 import Foundation
-protocol AnimationProvider
+
+//protocol for view controllers with custom transition Animations
+protocol TransitionAnimationProvider
 {
     //this is for when a vc is being dismissed/ removed from the view hierarchy
     func dismissAnimation()
