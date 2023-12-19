@@ -57,13 +57,7 @@ class ViewControllerSecond: UIViewController {
     private func dismissSelf()
     {
         print("dismiss second view controller")
-    
-        let interactiveTransition = InteractiveTransition(viewController: self)
-        let transitionDelegate = SlideInTransitionDelegate()  // Retain the delegate as a property
-        self.transitioningDelegate = transitionDelegate
-
-        dismiss(animated: true, completion: {})
-    
+        AnimationHelper.dismissController(self)
     }
     
     @objc
@@ -71,11 +65,6 @@ class ViewControllerSecond: UIViewController {
     {
         print("present third view controller")
         let viewControllerToPresent = ViewControllerThird()
-        viewControllerToPresent.modalPresentationStyle = .custom
-        let interactiveTransition = InteractiveTransition(viewController: self)
-        let transitionDelegate = SlideInTransitionDelegate()  // Retain the delegate as a property
-        transitionDelegate.interactionController = interactiveTransition
-        viewControllerToPresent.transitioningDelegate = transitionDelegate
-        present(viewControllerToPresent, animated: true, completion: nil)
+        AnimationHelper.presentController(viewController: viewControllerToPresent, from: self)
     }
 }

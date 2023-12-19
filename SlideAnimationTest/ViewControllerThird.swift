@@ -39,11 +39,6 @@ class ViewControllerThird: UIViewController {
     private func dismissself()
     {
         print("dismiss third view controller")
-        modalPresentationStyle = .custom
-        var interactiveTransition = InteractiveTransition(viewController: self)
-        let transitionDelegate = SlideInTransitionDelegate()  // Retain the delegate as a property
-        transitionDelegate.interactionController = interactiveTransition
-        self.transitioningDelegate = transitionDelegate
-        dismiss(animated: true, completion: {})
+        AnimationHelper.dismissController(self)
     }
 }
