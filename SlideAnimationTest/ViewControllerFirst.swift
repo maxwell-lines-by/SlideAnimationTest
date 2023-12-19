@@ -1,7 +1,7 @@
 import UIKit
 
 
-//initial/ root vc
+//initial/ root vc // note that this class does NOT supply a custom animation, so it just... doesnt move! 
 class ViewControllerFirst: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,3 +36,4 @@ class ViewControllerFirst: UIViewController {
         present(viewControllerToPresent, animated: true, completion: nil)
     }
 }
+

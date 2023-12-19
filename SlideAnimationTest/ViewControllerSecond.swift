@@ -73,3 +73,50 @@ class ViewControllerSecond: UIViewController {
         present(viewControllerToPresent, animated: true)
     }
 }
+
+extension ViewControllerSecond: TransitionAnimationProvider
+{
+    
+    //slide from center to right
+    func dismissAnimation(completion: ((Bool) -> Void)?) {
+        self.view.transform = .identity
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [.allowUserInteraction],
+                       animations: {
+            self.view.transform = CGAffineTransform(translationX: self.view.frame.width, y: 0)
+
+        }, completion: completion)
+    }
+    //slide from right to center
+    func presentAniamtion(completion: ((Bool) -> Void)?) {
+        
+        view.transform = CGAffineTransform(translationX: self.view.frame.width, y: 0)
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [.allowUserInteraction],
+                       animations: {
+            self.view.transform = .identity
+        }, completion: completion)
+    }
+    //slide from center to left
+    func backgroundAnimation() {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [.allowUserInteraction],
+                       animations: {
+            self.view.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
+        })
+    }
+    //slide from left to center
+    func foregroundAnimation() {
+        view.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [.allowUserInteraction],
+                       animations: {
+            self.view.transform = .identity
+
+        })
+    }
+}

@@ -1,9 +1,11 @@
 import UIKit
+import os
 class SlideInTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     var isPresenting = true
     let springAnimationDuration = 0.5
     let springAnimationDamping = 0.9
     let springAnimationInitialVelocity = 1.0
+    let logger = Logger(subsystem: "TEST APP", category: "SlideTransitionAnimator")
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return springAnimationDuration
@@ -15,7 +17,7 @@ class SlideInTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         
         if isPresenting
         {
-            presentAnimation( toVC: toVC, withContext: transitionContext)
+            presentAnimation(fromVC: fromVC, toVC: toVC, withContext: transitionContext)
         }
         else
         {
@@ -23,7 +25,7 @@ class SlideInTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         }
     }
     
-    private func presentAnimation(toVC: UIViewController, withContext transitionContext: UIViewControllerContextTransitioning)
+    private func presentAnimation(fromVC: UIViewController, toVC: UIViewController, withContext transitionContext: UIViewControllerContextTransitioning)
     {
         print("present animation")
         let containerView = transitionContext.containerView
@@ -32,52 +34,82 @@ class SlideInTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         
         containerView.addSubview(toView)
         
-        toView.frame = finalFrame.offsetBy(dx: containerView.bounds.width, dy: 0)
-        UIView.animate(withDuration: springAnimationDuration,
-                       delay: 0,
-                       usingSpringWithDamping: springAnimationDamping,
-                       initialSpringVelocity: springAnimationInitialVelocity,
-                       options: [.allowUserInteraction],
-                       animations: {
-            
-            toView.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
-          //  fromVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
-        }, completion: { finished in
-            print("present completed")
-       //     fromVC.view.transform = .identity // Reset the view's transform
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-        })
+        if let customFromVC = fromVC as? TransitionAnimationProvider
+        {
+            customFromVC.backgroundAnimation()
+        }
+        else
+        {
+            logger.log("presenting VC has no custom animations")
+        }
+        
+        if let customToVC = toVC as? TransitionAnimationProvider
+        {
+            customToVC.presentAniamtion(completion: {_ in print("present completed")
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)})
+        }
+        else
+        {
+            logger.log("view being presented has no custom animations")
+            toView.frame = finalFrame.offsetBy(dx: containerView.bounds.width, dy: 0)
+            UIView.animate(withDuration: springAnimationDuration,
+                           delay: 0,
+                           usingSpringWithDamping: springAnimationDamping,
+                           initialSpringVelocity: springAnimationInitialVelocity,
+                           options: [.allowUserInteraction],
+                           animations: {
+                
+                toView.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
+            }, completion: { finished in
+            })
+        }
     }
     
     private func dismissAnimation(fromVC: UIViewController, toVC: UIViewController, withContext transitionContext: UIViewControllerContextTransitioning)
     {
         print("dismiss animation")
-        let containerView = transitionContext.containerView
-      //  toVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
         let fromView = transitionContext.view(forKey: .from)!
-
+    
+        if let customFromVC = fromVC as? TransitionAnimationProvider
+        {
+            customFromVC.dismissAnimation(completion:{ finished in
+                                          let wasCancelled = transitionContext.transitionWasCancelled
+                                                if wasCancelled {
+                                                    print("was cancelled")
+                                                } else {
+                                                    fromView.removeFromSuperview()
+                                                }
+                                          print("dismiss completed")
+                                          transitionContext.completeTransition(!wasCancelled)})
+        }
+        else
+        {
+            logger.log("dismissed  VC has no custom animations")
+            UIView.animate(withDuration: springAnimationDuration,
+                           delay: 0,
+                           options: [.allowUserInteraction],
+                           animations: {
+                fromView.transform = .identity
+            }, completion: { finished in
+                let wasCancelled = transitionContext.transitionWasCancelled
+                      if wasCancelled {
+                          print("was cancelled")
+                      } else {
+                          fromView.removeFromSuperview()
+                      }
+                print("dismiss completed")
+                    transitionContext.completeTransition(!wasCancelled)
+            })
+        }
         
-        UIView.animate(withDuration: springAnimationDuration,
-                       delay: 0,
-                       options: [.allowUserInteraction],
-                       animations: {
-           // toVC.view.transform = .identity
-            fromView.transform = .identity
-        }, completion: { finished in
-            let wasCancelled = transitionContext.transitionWasCancelled
-                  if wasCancelled {
-                      print("was cancelled")
-                      // Reset any changes made during the transition
-                    //  toVC.view.transform = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
-                     // toVC.view.transform = .identity
-                  } else {
-                      // Remove the fromVC's view from the container view if the transition completed
-                      fromView.removeFromSuperview()
-                  }
-            print("dismiss completed")
-
-                transitionContext.completeTransition(!wasCancelled)
-        })
+        if let customToVC = toVC as? TransitionAnimationProvider
+        {
+            customToVC.foregroundAnimation()
+        }
+        else
+        {
+            logger.log("view being put into forground has no custom animations")
+        }
     }
 }
 

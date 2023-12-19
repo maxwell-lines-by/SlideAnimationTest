@@ -4,18 +4,11 @@ import Foundation
 protocol TransitionAnimationProvider
 {
     //this is for when a vc is being dismissed/ removed from the view hierarchy
-    func dismissAnimation()
+    func dismissAnimation(completion: ((Bool) -> Void)?)
     //this is for when a vc is being presented/ added to the view hierarchy
-    func presentAniamtion()
+    func presentAniamtion(completion: ((Bool) -> Void)?)
     //this is for when a vc is presenting an animation, and has to animation itself into the background/ offscreen
-    func presentingAnimation()
-    //
-    func getPreferredAnimationType() -> AnimationType
-}
-
-enum AnimationType
-{
-    case horizontal
-    case vertical
-    case fadeOut
+    func backgroundAnimation()
+    //this is for when the animation being presented is dismissed, and the view beneth it is allowed to return to the main view
+    func foregroundAnimation()
 }
